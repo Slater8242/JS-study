@@ -99,7 +99,24 @@
 // && //оператор и (and)
 // || //оператор или (or)
 
-const isChecked = true,
-      isClose = true;
+// const isChecked = true,
+//       isClose = true;
     
-console.log(isChecked && isClose);
+// console.log(isChecked && isClose);
+
+// Задание : Практика 1
+const numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели","");  //Всегда в виде числа
+const questions= [];
+questions [0] = prompt ("Один из последних просмотренных фильмов?","");
+questions [1] = +prompt ("На сколько оцените его?","");
+
+
+const personalMovideDb = {
+    count: numberOfFilms,
+    movies: {questions},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+console.log(personalMovideDb);
