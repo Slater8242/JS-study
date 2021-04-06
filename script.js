@@ -67,9 +67,39 @@
 
 // Интерполяция (Раздел 2 урок 5)
 
-const category = "toys";
+// const category = "toys";
 
-console.log(`https://someurl/${category}/5`);
+// console.log(`https://someurl/${category}/5`);
 
-const user = "Riad";
-alert(`Привет ${user}`)
+// const user = "Riad";
+// alert(`Привет ${user}`)
+
+// Операторы (Раздел 2 урок 6)
+
+// console.log("arr" + ' - object');
+// console.log(4 + "5");
+// let incr = 10,
+//     decr = 10;
+
+// // ++incr;
+// // --decr;
+
+// console.log(++incr);
+// console.log(--decr);
+
+// console.log(5%2);
+
+// console.log(2*4 = 8) // присвоение
+
+// console.log(2*4 == 8) // равенство
+
+// console.log(2*4 === 8) // строгое равенство
+
+//Логические операторы
+// && //оператор и (and)
+// || //оператор или (or)
+
+const isChecked = true,
+      isClose = true;
+    
+console.log(isChecked && isClose);
