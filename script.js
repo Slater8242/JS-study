@@ -106,17 +106,25 @@
 
 // Задание : Практика 1
 const numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели","");  //Всегда в виде числа
-const questions= [];
-questions [0] = prompt ("Один из последних просмотренных фильмов?","");
-questions [1] = +prompt ("На сколько оцените его?","");
-
+// const questions= []; //  my version
+// questions [0] = prompt ("Один из последних просмотренных фильмов?","");
+// questions [1] = +prompt ("На сколько оцените его?","");
+// questions [2] = prompt ("Один из последних просмотренных фильмов?","");
+// questions [3] = +prompt ("На сколько оцените его?","");
 
 const personalMovideDb = {
     count: numberOfFilms,
-    movies: {questions},
+    movies: {},
     actors: {},
     genres: [],
     privat: false
 };
 
+const a = prompt ("Один из последних просмотренных фильмов?",""),
+      b = +prompt ("На сколько оцените его?",""),
+      c = prompt ("Один из последних просмотренных фильмов?",""),
+      d = +prompt ("На сколько оцените его?","");
+
+personalMovideDb.movies[a] = b;
+personalMovideDb.movies[c] = d;
 console.log(personalMovideDb);
