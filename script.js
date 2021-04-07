@@ -207,3 +207,58 @@
 
 //  Задание : Практика 2 (Раздел 2 урок 9)
 
+const numberOfFilms = prompt ("Сколько фильмов вы уже посмотрели","");  //Всегда в виде числа
+
+const personalMovieDb = {
+    count: numberOfFilms,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false
+};
+
+// for (var i = 0; i <2; i++) {
+let i=0;
+// while (i<2){
+do{
+    const a = prompt ("Один из последних просмотренных фильмов?",""),
+          b = +prompt ("На сколько оцените его?","");
+          i++;
+      personalMovieDb.movies[a] = b;
+      if(a != null && b != null && a != "" && b != "" && a.length<50){
+        personalMovieDb[a] = b;
+        console.log("done");
+      }else{
+          console.log("Error");
+          i--;
+      }
+}while (i < 2);
+// }
+// }
+console.log (personalMovieDb);
+
+if(personalMovieDb.count <=10){
+    alert("Просмотрено довольно мало фильмов");
+}else if (10<personalMovieDb.count && personalMovieDb.count <= 30) {
+    alert("Вы классический зритель");
+}else if (personalMovieDb.count > 30) {
+    alert("Вы киноман");
+}else{
+    alert("Произошло ошибка");
+}
+
+// let question = prompt ("Сколько фильмов вы уже посмотрели","");
+
+// if(question == ""){
+//     alert ("Нельзя оставить поле пустым");
+//     while (question !== "") {
+//         question = prompt ("Сколько фильмов вы уже посмотрели","");
+//     }
+// }else if (question === null){
+//     alert ("Нельзя отменить ответ");
+//     question = prompt ("Сколько фильмов вы уже посмотрели","");
+// }else if(question.length > 50){
+//     alert ("Нельзя ввести название фильма более 50 символов");
+//     prompt ("Сколько фильмов вы уже посмотрели","");
+// }
+// console.log(questions);
