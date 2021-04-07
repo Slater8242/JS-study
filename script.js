@@ -246,19 +246,3 @@ if(personalMovieDb.count <=10){
 }else{
     alert("Произошло ошибка");
 }
-
-// let question = prompt ("Сколько фильмов вы уже посмотрели","");
-
-// if(question == ""){
-//     alert ("Нельзя оставить поле пустым");
-//     while (question !== "") {
-//         question = prompt ("Сколько фильмов вы уже посмотрели","");
-//     }
-// }else if (question === null){
-//     alert ("Нельзя отменить ответ");
-//     question = prompt ("Сколько фильмов вы уже посмотрели","");
-// }else if(question.length > 50){
-//     alert ("Нельзя ввести название фильма более 50 символов");
-//     prompt ("Сколько фильмов вы уже посмотрели","");
-// }
-// console.log(questions);
