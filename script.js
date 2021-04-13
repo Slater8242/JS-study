@@ -327,24 +327,24 @@
 
 //  Задание : Практика 2 (Раздел 2 урок 12)
 
-let numberOfFilms ;
-function start() {
-    numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели",""); 
+// let numberOfFilms ;
+// function start() {
+//     numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели",""); 
 
-    while(numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){
-        numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели","");
-    }
-}
+//     while(numberOfFilms == "" || numberOfFilms == null || isNaN(numberOfFilms)){
+//         numberOfFilms = +prompt ("Сколько фильмов вы уже посмотрели","");
+//     }
+// }
 
-start();
+// start();
 
-const personalMovieDb = {
-    count: numberOfFilms,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false
-};
+// const personalMovieDb = {
+//     count: numberOfFilms,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false
+// };
 
 // for (var i = 0; i <2; i++) {
 // // let i=0;
@@ -365,66 +365,180 @@ const personalMovieDb = {
 // // }
 // }
 
-function rememberMyFilms(){
-    for (var i = 0; i <2; i++) {
-        const a = prompt ("Один из последних просмотренных фильмов?",""),
-              b = +prompt ("На сколько оцените его?","");
-              i++;
-            personalMovieDb.movies[a] = b;
-        if(a != null && b != null && a != "" && b != "" && a.length<50){
-            personalMovieDb.movies[a] = b;
-            console.log("done");
-        }else{
-            console.log("Error");
-            i--;
-        }
-    }
-}
+// function rememberMyFilms(){
+//     for (var i = 0; i <2; i++) {
+//         const a = prompt ("Один из последних просмотренных фильмов?",""),
+//               b = +prompt ("На сколько оцените его?","");
+//               i++;
+//             personalMovieDb.movies[a] = b;
+//         if(a != null && b != null && a != "" && b != "" && a.length<50){
+//             personalMovieDb.movies[a] = b;
+//             console.log("done");
+//         }else{
+//             console.log("Error");
+//             i--;
+//         }
+//     }
+// }
 
-rememberMyFilms();
+// rememberMyFilms();
 
-function detectPersonalLevel() {
-    if(personalMovieDb.count <=10){
-        alert("Просмотрено довольно мало фильмов");
-    }else if (10<personalMovieDb.count && personalMovieDb.count <= 30) {
-        alert("Вы классический зритель");
-    }else if (personalMovieDb.count > 30) {
-        alert("Вы киноман");
-    }else{
-        alert("Произошло ошибка");
-    }
-}
+// function detectPersonalLevel() {
+//     if(personalMovieDb.count <=10){
+//         alert("Просмотрено довольно мало фильмов");
+//     }else if (10<personalMovieDb.count && personalMovieDb.count <= 30) {
+//         alert("Вы классический зритель");
+//     }else if (personalMovieDb.count > 30) {
+//         alert("Вы киноман");
+//     }else{
+//         alert("Произошло ошибка");
+//     }
+// }
 
-detectPersonalLevel();
+// detectPersonalLevel();
 
-function writeYourGenres() { // Моя версия
-    let genreNum = 1;
-    for(var i = 0; i <3; i++){
-        const genresQuestion = prompt(`Ваш любимый жанр под номером ${genreNum++}`)
-        personalMovieDb.genres[genreNum] = genresQuestion;
-    }
-}
+// function writeYourGenres() { // Моя версия
+//     let genreNum = 1;
+//     for(var i = 0; i <3; i++){
+//         const genresQuestion = prompt(`Ваш любимый жанр под номером ${genreNum++}`)
+//         personalMovieDb.genres[genreNum] = genresQuestion;
+//     }
+// }
 
-writeYourGenres();
+// writeYourGenres();
 
-function writeYourGenres() { // Версия по уроку
-    for (let i = 1; i <= 3; i++) {
-        personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
-    }
-}
-writeYourGenres();
+// function writeYourGenres() { // Версия по уроку
+//     for (let i = 1; i <= 3; i++) {
+//         personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+//     }
+// }
+// writeYourGenres();
 
-function showMyDb() { // Моя версия
-    if (personalMovieDb.privat == false) {
-        console.log (personalMovieDb);
-    }
-}
+// function showMyDb() { // Моя версия
+//     if (personalMovieDb.privat == false) {
+//         console.log (personalMovieDb);
+//     }
+// }
 
-showMyDb();
+// showMyDb();
 
-function showMyDB (hidden) { // Версия по уроку
-    if (!hidden) {
-        console.log(personalMovieDB);
-    }
-}
-showMyDB(personalMovieDB.privat);
+// function showMyDB (hidden) { // Версия по уроку
+//     if (!hidden) {
+//         console.log(personalMovieDB);
+//     }
+// }
+// showMyDB(personalMovieDB.privat);
+
+// Callback - функции(Раздел 2 урок 13)
+
+// function first() {
+//     // Do something
+//     setTimeout(function () {
+//         console.log(1);
+//     },500);
+// }
+
+// function second() {
+//     console.log(2);
+// }
+
+// first();
+// second();
+
+// function done() {
+//     console.log("Я выучил JavaScript");
+// }
+
+// function learnJS(lang, callback) {
+//     console.log(`Я учу : ${lang}`);
+//     callback();
+// }
+
+// learnJS("Javascript",done);
+
+// Объекты, деструктуризация объектов (ES6)(Раздел 2 урок 14)
+
+// const options = {
+//     name:"test",
+//     width:1024,
+//     height:1024,
+//     colors:{
+//         border:"black",
+//         bg:"red"
+//     },
+//     makeTest: function() { // метод в объекте
+//         console.log("test"); 
+//     } 
+// };
+
+// options.makeTest(); //вызов медота 
+
+// const {border,bg} = options.colors; // вытаскивает подобъект из объекта 
+// console.log(border); // здесь можно получить доступ к подобъекту которую вытащили
+
+// console.log(Object.keys(options).length); // Метод keys() даём нам возможность получить массив объекта и узнать сколько там ключей
+ 
+
+// console.log(options.name);
+// console.log(options["colors"]["border"]); // Найти в объекте ,ключ (подобъект) и показать значение ключа в подобъекте
+
+// delete options.name; // удаляет выбранный ключ
+
+// console.log(options);
+// let counter = 0;
+// for (const key in options) {
+//     if (typeof options[key]==="object") { // Если в объекте есть ключ который равен к значению "object"
+//         for (let i in options[key]) {
+//             console.log(`Свойство ${i} имеет значение ${options[key][i]}`); // показать ключ и его значение
+//             counter ++;
+//         }
+//     }else {
+//         console.log(`Свойство ${key} имеет значение ${options[key]}`); // показать ключ и его значение
+//         counter ++;
+//     }
+// }
+// console.log(counter);
+
+// Массивы и псевдомассивы (ES6)(Раздел 2 урок 14)
+
+// const arr = [1,2,3,16,8];
+// arr.sort(compareNum); //медот сортировки (работает в алгоритме быстрой сортировки. Пример 1.1; 1.2; 2...)
+// console.log(arr);
+
+// function compareNum(a,b) { // callback медот который даёт возможность избавиться от быстрой сортировки
+//     return a - b;
+// }
+// arr[99] = 0;
+// console.log(arr.length); //показывает длину массива
+// console.log(arr); //показывает массив
+
+// arr.forEach(function(item, i, arr){
+//     console.log(`${i}: ${item} внутри массива ${arr}`);
+// });
+
+// arr.pop(); // удаляет последний элемент из массива
+// arr.push(9); // добавляет элемент в конец массива
+
+// console.log(arr);
+
+// for (let i = 0; i < arr.length; i++) { // показывает массив в цикле
+//     console.log(arr[i]);    
+// }
+
+// for (let value of arr) {  // показывает массив в цикле for of
+//     console.log(value);
+// }
+
+// const str = prompt ("", "");
+// const products = str.split(", "); 
+/* превращает строку в массив,
+т.е. если "заяц, волк, птица" то он будет хранить его в виде массива и удалять то что дано в аргументе.
+результат: 
+0:"qqq"
+1:"ddd"
+2:"aaa"*/
+// products.sort(); //медот сортировки, сортировка от А до Я
+// console.log(products.join("; ")); 
+/* превращает массив в строку т.е. если "заяц, волк, птица"
+то он будет хранить его в виде строки и добавлять то что дано в аргументе.
+результат с сортировкой: aaa; ddd; qqq */
