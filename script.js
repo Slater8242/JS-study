@@ -471,7 +471,7 @@
 //     } 
 // };
 
-// options.makeTest(); //вызов медота 
+// options.makeTest(); //вызов метода 
 
 // const {border,bg} = options.colors; // вытаскивает подобъект из объекта 
 // console.log(border); // здесь можно получить доступ к подобъекту которую вытащили
@@ -499,13 +499,13 @@
 // }
 // console.log(counter);
 
-// Массивы и псевдомассивы (ES6)(Раздел 2 урок 14)
+// Массивы и псевдомассивы (Раздел 2 урок 15)
 
 // const arr = [1,2,3,16,8];
-// arr.sort(compareNum); //медот сортировки (работает в алгоритме быстрой сортировки. Пример 1.1; 1.2; 2...)
+// arr.sort(compareNum); //метод сортировки (работает в алгоритме быстрой сортировки. Пример 1.1; 1.2; 2...)
 // console.log(arr);
 
-// function compareNum(a,b) { // callback медот который даёт возможность избавиться от быстрой сортировки
+// function compareNum(a,b) { // callback метод который даёт возможность избавиться от быстрой сортировки
 //     return a - b;
 // }
 // arr[99] = 0;
@@ -537,8 +537,231 @@
 0:"qqq"
 1:"ddd"
 2:"aaa"*/
-// products.sort(); //медот сортировки, сортировка от А до Я
+// products.sort(); //метода сортировки, сортировка от А до Я
 // console.log(products.join("; ")); 
 /* превращает массив в строку т.е. если "заяц, волк, птица"
 то он будет хранить его в виде строки и добавлять то что дано в аргументе.
 результат с сортировкой: aaa; ddd; qqq */
+
+// Передача по ссылке или по значению, Spread оператор (ES6-ES9)(Раздел 2 урок 16)
+
+// let a = 5,
+//     b = a;
+// b= b + 5;
+// console.log(b);
+// console.log(a);
+
+// const obj = {
+//     a:5,
+//     b:1
+// };
+
+// const copy= obj;
+// copy.a = 10;
+// console.log(copy);
+// console.log(obj);
+
+// function copy(mainObj) { //Функция создаёт поверхностною копию, то есть объекты внутри объекта будут ссылаться к оригиналу
+//     let objCopy = {};
+
+//     let key;
+//     for(key in mainObj){
+//         objCopy[key]=mainObj[key];
+//     }
+//     return objCopy;
+// }
+
+// const numbers= { // оригинал объекта
+//     a:2,
+//     b:5,
+//     c:{
+//         x:7,
+//         y:4
+//     }
+// };
+
+// const newnumbers= copy(numbers); // поверхностная копия создая функцией
+
+// newnumbers.a = 10;
+// newnumbers.c.x =10; // переменная также поменяется в оригинале
+// console.log(newnumbers);
+// console.log(numbers);
+
+// const add = {
+//     d:17,
+//     e:20
+// }
+
+// console.log(Object.assign(numbers, add)); //соединение двух объектов
+
+// const clone = Object.assign({},add); //создание клона объекта
+
+// clone.d =20; // изменение ключа внутри клона
+// console.log(add);
+// console.log(clone);
+
+// const oldArray = ["a","b","c"];
+// const newArray = oldArray.slice(); // копирование данных методом Slice()
+
+// newArray[1] ="ksdskda";
+// console.log(newArray);
+// console.log(oldArray);
+
+// const video = ["youtube", "vimeo","rutube"],
+//       blogs = ["wordpres","livejournal","blogger"],
+//       internet = [...video,...blogs,"lololo"]; // оператор Spread (...) разворачивает структуру и превщарает в набор данных
+
+// console.log(internet);
+
+// function log (a,b,c){
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+// }
+
+// const num = [2,5,7];
+
+// log(...num); // Используя оператор Spread можем использовать данные в массиве нум и вставлять в параметры функции лог
+
+// const array = ["a","b"];
+
+// const newAarray = [...array]; //используя Spread можно копирать данные
+
+// console.log(newAarray);
+
+// const q = {
+//     one: 1,
+//     two: 2
+// };
+
+// const newObj ={...q}; // здесь тоже копирование
+
+// console.log(newObj);
+
+// Основы ООП, прототипно-ориентированное наследование (Раздел 2 урок 17)
+
+// let str ="some";
+// let strObj = new String(str); // строка переоброзована в объект
+
+// console.log(typeof(str));
+// console.log(typeof(strObj));
+
+// console.dir([1,2,3]);
+
+// const soldier = { // создание объекта
+//     health: 400,
+//     armor: 100,
+//     sayHello: function() { // метод объекта
+//         console.log("hello");
+//     }
+// };
+
+// const john = Object.create(soldier); // создание объекта John используя данные Soldier
+
+// const john = { // данные объекта John
+//     health:100
+// };
+
+// john.__proto__ = soldier; // устаревший вид создание объекта
+
+// Object.setPrototypeOf(john,soldier); // создание объекта уже имееющий свои данные
+
+// console.log(john.armor);
+// john.sayHello();
+// soldier.sayHello();
+
+//  Задание : Практика 4 (Раздел 2 урок 18)
+
+// let numberOfFilms;
+const personalMovieDb = {
+    count: 0,
+    movies: {},
+    actors: {},
+    genres: [],
+    privat: false,
+    start: function () {
+      personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
+      while (personalMovieDb.count == "" || personalMovieDb.count == null || isNaN(personalMovieDb.count)) {
+        personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
+      }
+    },
+    rememberMyFilms: function () {
+      for (var i = 0; i < 2; i++) {
+        const a = prompt("Один из последних просмотренных фильмов?", ""),
+          b = +prompt("На сколько оцените его?", "");
+        i++;
+        this.movies[a] = b;
+        if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+          this.movies[a] = b;
+          console.log("done");
+        } else {
+          console.log("Error");
+          i--;
+        }
+      }
+    },
+    detectPersonalLevel: function () {
+      if (this.count <= 10) {
+        alert("Просмотрено довольно мало фильмов");
+      } else if (10 < this.count && this.count <= 30) {
+        alert("Вы классический зритель");
+      } else if (this.count > 30) {
+        alert("Вы киноман");
+      } else {
+        alert("Произошло ошибка");
+      }
+    },
+    showMyDb: function () {
+      // Моя версия
+      if (this.privat == false) {
+        console.log(personalMovieDb);
+      }
+    },
+    writeYourGenres: function () {
+      // Моя версия
+      for (var i = 1; i <= 3; i++) {
+        // const genresQuestion = prompt(`Ваш любимый жанр под номером ${i}`);
+        // if (genresQuestion === "" || genresQuestion === null) {
+        //     console.log('Вы ввели некорректные данные или не ввели их вовсе');
+        //     i--;
+        // }else{
+        //     this.genres[i - 1] = genresQuestion;
+        // }
+
+        // Альтернативный вариант из урока
+        let genresQuestion = prompt(`Ваш любимый жанр под номером ${i}`).toLowerCase;
+        if (genresQuestion === "" || genresQuestion === null) {
+            console.log('Вы ввели некорректные данные или не ввели их вовсе');
+            i--;
+        }else{
+            personalMovieDb.genres = genresQuestion.split(", ");
+            personalMovieDb.genres.sort();
+        }
+
+        // if (genresQuestion != "" && genresQuestion != null) { // мой вариант
+        //   console.log("Genres:success")
+        // }else{
+        //   console.log("Genres:error")
+        //   i--;
+        // }
+      }
+      personalMovieDb.genres.forEach((item,i)=> {
+        console.log(`Ваш любимый жанр под номером ${i} - это ${item}`)
+      });
+    },
+    toggleVisibleMyDb :function () {
+      if (personalMovieDb.privat) {
+        personalMovieDb.privat = false;
+      } else {
+        personalMovieDb.privat = true;
+      }
+    }
+  };
+  
+  // personalMovieDb.start();
+  // personalMovieDb.rememberMyFilms();
+  // personalMovieDb.detectPersonalLevel();
+  personalMovieDb.showMyDb();
+  console.log(personalMovieDb.writeYourGenres());
+  personalMovieDb.toggleVisibleMyDb();
+  
