@@ -673,70 +673,60 @@
 //  Задание : Практика 4 (Раздел 2 урок 18)
 
 // let numberOfFilms;
-const personalMovieDb = {
-    count: 0,
-    movies: {},
-    actors: {},
-    genres: [],
-    privat: false,
-    start: function () {
-      personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
-      while (personalMovieDb.count == "" || personalMovieDb.count == null || isNaN(personalMovieDb.count)) {
-        personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
-      }
-    },
-    rememberMyFilms: function () {
-      for (var i = 0; i < 2; i++) {
-        const a = prompt("Один из последних просмотренных фильмов?", ""),
-          b = +prompt("На сколько оцените его?", "");
-        i++;
-        this.movies[a] = b;
-        if (a != null && b != null && a != "" && b != "" && a.length < 50) {
-          this.movies[a] = b;
-          console.log("done");
-        } else {
-          console.log("Error");
-          i--;
-        }
-      }
-    },
-    detectPersonalLevel: function () {
-      if (this.count <= 10) {
-        alert("Просмотрено довольно мало фильмов");
-      } else if (10 < this.count && this.count <= 30) {
-        alert("Вы классический зритель");
-      } else if (this.count > 30) {
-        alert("Вы киноман");
-      } else {
-        alert("Произошло ошибка");
-      }
-    },
-    showMyDb: function () {
-      // Моя версия
-      if (this.privat == false) {
-        console.log(personalMovieDb);
-      }
-    },
-    writeYourGenres: function () {
-      // Моя версия
-      for (var i = 1; i <= 3; i++) {
-        // const genresQuestion = prompt(`Ваш любимый жанр под номером ${i}`);
-        // if (genresQuestion === "" || genresQuestion === null) {
-        //     console.log('Вы ввели некорректные данные или не ввели их вовсе');
-        //     i--;
-        // }else{
-        //     this.genres[i - 1] = genresQuestion;
-        // }
-
-        // Альтернативный вариант из урока
-        let genresQuestion = prompt(`Ваш любимый жанр под номером ${i}`).toLowerCase;
-        if (genresQuestion === "" || genresQuestion === null) {
-            console.log('Вы ввели некорректные данные или не ввели их вовсе');
-            i--;
-        }else{
-            personalMovieDb.genres = genresQuestion.split(", ");
-            personalMovieDb.genres.sort();
-        }
+// const personalMovieDb = {
+//     count: 0,
+//     movies: {},
+//     actors: {},
+//     genres: [],
+//     privat: false,
+//     start: function () {
+//       personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
+//       while (personalMovieDb.count == "" || personalMovieDb.count == null || isNaN(personalMovieDb.count)) {
+//         personalMovieDb.count = +prompt("Сколько фильмов вы уже посмотрели", "");
+//       }
+//     },
+//     rememberMyFilms: function () {
+//       for (var i = 0; i < 2; i++) {
+//         const a = prompt("Один из последних просмотренных фильмов?", ""),
+//           b = +prompt("На сколько оцените его?", "");
+//         i++;
+//         this.movies[a] = b;
+//         if (a != null && b != null && a != "" && b != "" && a.length < 50) {
+//           this.movies[a] = b;
+//           console.log("done");
+//         } else {
+//           console.log("Error");
+//           i--;
+//         }
+//       }
+//     },
+//     detectPersonalLevel: function () {
+//       if (this.count <= 10) {
+//         alert("Просмотрено довольно мало фильмов");
+//       } else if (10 < this.count && this.count <= 30) {
+//         alert("Вы классический зритель");
+//       } else if (this.count > 30) {
+//         alert("Вы киноман");
+//       } else {
+//         alert("Произошло ошибка");
+//       }
+//     },
+//     showMyDb: function () {
+//       // Моя версия
+//       if (this.privat == false) {
+//         console.log(personalMovieDb);
+//       }
+//     },
+//     writeYourGenres: function () {
+//       // Моя версия
+//       for (var i = 1; i <= 3; i++) {
+//         const genresQuestion = prompt(`Ваш любимый жанр под номером ${i}`);
+//         if (genresQuestion === "" || genresQuestion === null) {
+//             console.log('Вы ввели некорректные данные или не ввели их вовсе');
+//             i--;
+//         }else{
+//             this.genres[i - 1] = genresQuestion;
+//         }
 
         // if (genresQuestion != "" && genresQuestion != null) { // мой вариант
         //   console.log("Genres:success")
@@ -744,24 +734,88 @@ const personalMovieDb = {
         //   console.log("Genres:error")
         //   i--;
         // }
-      }
-      personalMovieDb.genres.forEach((item,i)=> {
-        console.log(`Ваш любимый жанр под номером ${i} - это ${item}`)
-      });
-    },
-    toggleVisibleMyDb :function () {
-      if (personalMovieDb.privat) {
-        personalMovieDb.privat = false;
-      } else {
-        personalMovieDb.privat = true;
-      }
-    }
-  };
+//       }
+//       personalMovieDb.genres.forEach((item,i)=> {
+//         console.log(`Ваш любимый жанр под номером ${i} - это ${item}`)
+//       });
+//     },
+//     toggleVisibleMyDb :function () {
+//       if (personalMovieDb.privat) {
+//         personalMovieDb.privat = false;
+//       } else {
+//         personalMovieDb.privat = true;
+//       }
+//     }
+//   };
   
   // personalMovieDb.start();
   // personalMovieDb.rememberMyFilms();
   // personalMovieDb.detectPersonalLevel();
-  personalMovieDb.showMyDb();
-  console.log(personalMovieDb.writeYourGenres());
-  personalMovieDb.toggleVisibleMyDb();
+//   personalMovieDb.showMyDb();
+//   console.log(personalMovieDb.writeYourGenres());
+//   personalMovieDb.toggleVisibleMyDb();
   
+// Динамическая типизация (Раздел 2 урок 19)
+
+// to string
+
+// // способ 1
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
+
+// // способ 2
+// console.log(typeof(5+"")); //При сложении со строкой всегда получается строка
+
+// const num = 5;
+
+// console.log("https://vk.com/catalog"+ num);
+
+// const fontSize = 26 + "px";
+
+// // To number
+
+// // способ 1
+// console.log(typeof(Number("4")));
+
+// // способ 2
+// console.log(typeof(+"5"));
+
+// // способ 3
+// console.log(typeof(parseInt("15px", 10)));
+
+// let answ = +prompt("Hello" ,"5");
+
+// // To boolean
+
+// // 0, "", null, undefined, NaN  всё это равно False
+
+// // способ 1
+// let switcher = null;
+
+// if (switcher) { // не будет работать потому что null = false
+//   console.log("Working...");
+// }
+
+// // способ 2
+// console.log(typeof(Boolean("5")));
+
+// // способ 3
+// console.log(typeof(!!"5"));
+
+// Задачи с собеседований на понимание основ (Раздел 2 урок 20)
+
+// [] + false - null + true
+// console.log([]+false); // при пустом массиве происходит переход в строку
+// console.log([]+false - null); // null превращает строку в NaN
+// console.log([] + false - null + true); // NaN
+
+// console.log([]+1+2); //"12"
+
+// console.log(2 && 1 && null && 0 && undefined);
+// И запинается на лжи
+// ИЛИ запинается на правде
+
+// console.log(!!( 1 && 2 ) === (1 && 2)); // так как !! превращает выражение в булево , то данное выражение не может быть равно
+
+                          // 3
+// console.log( null || 2 && 3 || 4 ); // если значение при операторе И равны то он будет возвращать значение справа
