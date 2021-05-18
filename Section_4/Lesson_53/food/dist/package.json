@@ -1,0 +1,25 @@
+{
+  "name": "js_study",
+  "version": "1.0.0",
+  "description": "Studying JavaScript",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Slater8242/JS-study.git"
+  },
+  "author": "Riad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Slater8242/JS-study/issues"
+  },
+  "homepage": "https://github.com/Slater8242/JS-study#readme",
+  "dependencies": {
+    "json": "^11.0.0"
+  },
+  "devDependencies": {
+    "json-server": "^0.16.3"
+  }
+}
